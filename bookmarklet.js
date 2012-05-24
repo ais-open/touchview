@@ -1,5 +1,5 @@
-// Copyright (c) 2012
-// Applied Information Sciences, http://ideas.appliedis.com/
+// Copyright (c) 2012 Applied Information Sciences, Inc.
+// http://www.appliedis.com
 //  
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
