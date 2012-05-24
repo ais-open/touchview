@@ -12,5 +12,5 @@ Or, if you're on the iPad, copy this text and put it into a bookmark:
 `javascript:var%20b=document.body;if(b&&!document.xmlVersion){void(z=document.createElement('script'));void(z.src='http://iangilman.com/dev/touch/js/bookmarklet.js');void(b.appendChild(z));}else{}`
 
 ## License
-TouchView is licensed under the [MIT License](MIT-license.txt)
+TouchView is licensed under the [MIT License](https://raw.github.com/AppliedIS/touchview/master/MIT-License.txt)
 
