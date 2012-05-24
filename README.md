@@ -9,7 +9,7 @@ to your bookmark bar (just below the URL bar in your browser).
 
 Or, if you're on the iPad, copy this text and put it into a bookmark:
 
-<textarea style="width:500px; height:100px;">javascript:var%20b=document.body;if(b&&!document.xmlVersion){void(z=document.createElement('script'));void(z.src='http://iangilman.com/dev/touch/js/bookmarklet.js');void(b.appendChild(z));}else{}</textarea>
+`javascript:var%20b=document.body;if(b&&!document.xmlVersion){void(z=document.createElement('script'));void(z.src='http://iangilman.com/dev/touch/js/bookmarklet.js');void(b.appendChild(z));}else{}`
 
 ## License
 TouchView is licensed under the [MIT License](MIT-license.txt)
