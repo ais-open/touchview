@@ -11,3 +11,7 @@ a:hover.bookmarklet,
 a:active.bookmarklet {
 	color: white;
 }	
+
+textarea {
+  width: 500px;
+}
