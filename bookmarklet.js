@@ -105,7 +105,7 @@ var Main = {
 					self.things[touch.identifier] = new Thing();
 				});
 			} else {
-				if (self.id in self.things)
+				if (self.things[self.id])
   				self.things[self.id].destroy();
   				
 				self.things[self.id] = new Thing();
@@ -148,6 +148,9 @@ var Main = {
 			.bind(TOUCHSTART, start)
 			.bind(TOUCHMOVE, move)
 			.bind(TOUCHEND, end);
+			
+		if (!this.hasTouch)
+		  $document.bind("dragstart", end);
 	},
 
 	// ----------
