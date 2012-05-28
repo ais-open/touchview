@@ -104,6 +104,9 @@ var Main = {
 					self.things[touch.identifier] = new Thing();
 				});
 			} else {
+				if (self.id in self.things)
+  				self.things[self.id].destroy();
+  				
 				self.things[self.id] = new Thing();
 			}
 			
