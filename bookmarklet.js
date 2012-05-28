@@ -33,6 +33,7 @@ function Thing() {
 			background: "rgba(255, 255, 255, 0.5)",
 			border: "1px solid rgba(0, 0, 0, 0.5)",
 			"border-radius": (Main.thingSize / 2) + "px",
+			"-webkit-transform": "translate3d(0, 0, 0)", /* forces GPU; fixes graphic glitches */
 			zIndex: 999999,
 			"pointer-events": "none" /* here's the magic */
 		})
@@ -104,7 +105,7 @@ var Main = {
 					self.things[touch.identifier] = new Thing();
 				});
 			} else {
-				if (self.id in self.things)
+				if (self.things[self.id])
   				self.things[self.id].destroy();
   				
 				self.things[self.id] = new Thing();
@@ -147,6 +148,9 @@ var Main = {
 			.bind(TOUCHSTART, start)
 			.bind(TOUCHMOVE, move)
 			.bind(TOUCHEND, end);
+			
+		if (!this.hasTouch)
+		  $document.bind("dragstart", end);
 	},
 
 	// ----------
