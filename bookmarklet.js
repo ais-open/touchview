@@ -33,6 +33,7 @@ function Thing() {
 			background: "rgba(255, 255, 255, 0.5)",
 			border: "1px solid rgba(0, 0, 0, 0.5)",
 			"border-radius": (Main.thingSize / 2) + "px",
+			"-webkit-transform": "translate3d(0, 0, 0)", /* forces GPU; fixes graphic glitches */
 			zIndex: 999999,
 			"pointer-events": "none" /* here's the magic */
 		})
