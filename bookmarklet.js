@@ -26,7 +26,7 @@
 // ==========
 function Thing() {
   var border = 2;
-	this.$el = jQuery("<div>")
+	this.$el = Main.$("<div>")
 		.css({
 			position: "absolute",
 			width: Main.thingSize,
@@ -63,6 +63,7 @@ Thing.prototype = {
 // ##########
 // ==========
 var Main = {
+  $: null, 
 	$container: null,
 	thingSize: 30,
 	hasTouch: "ontouchstart" in window, 
@@ -82,11 +83,12 @@ var Main = {
 			var interval = setInterval(function () {
 				if (jQueryCheck()) {
 					clearInterval(interval);
-					jQuery.noConflict();
+					self.$ = jQuery.noConflict(true);
 					self.start();
 				}
 			}, 200);
 		} else {
+		  self.$ = jQuery;
 			this.start();
 		}
 	},
@@ -102,7 +104,7 @@ var Main = {
 		function start(event) {
 			if (self.hasTouch) {
 				var touches = event.originalEvent.changedTouches;
-				jQuery.each(touches, function(a, touch) {
+				self.$.each(touches, function(a, touch) {
 					self.things[touch.identifier] = new Thing();
 				});
 			} else {
@@ -118,7 +120,7 @@ var Main = {
 		function move(event) {
 			if (self.hasTouch) {
 				var touches = event.originalEvent.changedTouches;
-				jQuery.each(touches, function(a, touch) {
+				self.$.each(touches, function(a, touch) {
 					self.things[touch.identifier].move({
 						x: touch.pageX,
 						y: touch.pageY
@@ -135,7 +137,7 @@ var Main = {
 		function end(event) {
 			if (self.hasTouch) {
 				var touches = event.originalEvent.changedTouches;
-				jQuery.each(touches, function(a, touch) {
+				self.$.each(touches, function(a, touch) {
 					self.things[touch.identifier].destroy();
 					delete self.things[touch.identifier];
 				});
@@ -145,7 +147,7 @@ var Main = {
 			}
 		}
 
-		var $document = jQuery(document)
+		var $document = this.$(document)
 			.bind(TOUCHSTART, start)
 			.bind(TOUCHMOVE, move)
 			.bind(TOUCHEND, end);
@@ -156,12 +158,9 @@ var Main = {
 
 	// ----------
 	importScript:function(url) {
-		try {
-			var s = document.createElement("script");
-			s.src = url + "?format=jsonp";
-			document.body.appendChild(s);
-		} catch(e) {
-		}
+		var s = document.createElement("script");
+		s.src = url;
+		document.body.appendChild(s);
 	}
 };
 
