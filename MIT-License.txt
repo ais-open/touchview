@@ -1,5 +1,7 @@
-Copyright (c) 2012 Applied Information Sciences, Inc.
-http://www.appliedis.com
+All portions Copyright (c) 2012 Applied Information Sciences, Inc.,
+except the DetectZoom object, Copyright (c) 2011 Yonathan Randolph.
+
+http://www.appliedis.com 
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
